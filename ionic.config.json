@@ -1,0 +1,7 @@
+{
+  "name": "qrgenerator",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

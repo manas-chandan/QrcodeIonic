@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      <ion-icon name="qr-code-outline"></ion-icon> QR code scanner
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1>Welcome Mr. Hrudansu</h1>
+  <ion-input placeholder="Enter Something......." [(ngModel)]="value" color="warning" class="inclas"
+    (ionChange)="chnageEvent()"></ion-input>
+  <br>
+
+  <span class="spa">You can also select or search some premade link here.</span>
+  <ion-item class="displayitmsec handhygnsec">
+    <ion-label position="floating">Link</ion-label>
+    <ionic-selectable headerColor="warning" placeholder="Select Link" [hasVirtualScroll]="true"
+      [(ngModel)]="searchValue" [items]="objForSerach" itemValueField="id" itemTextField="name" [canSearch]="true"
+      (onChange)="chooseLink($event)">
+      <ng-template ionicSelectableItemTemplate let-user="item">
+        {{user.name}}
+      </ng-template>
+      
+      <ng-template ionicSelectableCloseButtonTemplate>
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ng-template>
+    </ionic-selectable>
+  </ion-item>
+
+
+  <div id="container" *ngIf="value !=''">
+    <span *ngIf="val" class="spa">Here is your Qrcode.</span><br>
+    <span *ngIf="val" class="spa">Scan it by any Scanner</span><br>
+    <ngx-qrcode style="width: 300px; height: 300px;" [elementType]="elementType" [value]="value" cssClass="aclass"
+      errorCorrectionLevel="L">
+    </ngx-qrcode>
+  </div>
+</ion-content>
+
+<ion-footer collapse="fade" class="footerbtnsec">
+  <ion-toolbar>
+    <ion-title>©2022 Er. ManasBarik. All rights reserved.</ion-title>
+  </ion-toolbar>
+</ion-footer>
